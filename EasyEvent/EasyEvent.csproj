@@ -30,7 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Smod2">
+    <Reference Include="Smod2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>E:\Steam\steamapps\common\SCP Secret Laboratory\SCPSL_Data\Managed\Smod2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -43,11 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="game_Class.cs" />
-    <Compile Include="game_Event.cs" />
+    <Compile Include="Classes\game_Class.cs" />
+    <Compile Include="Classes\game_Event.cs" />
+    <Compile Include="Classes\game_Player.cs" />
+    <Compile Include="Commands\Items\ClearInventory.cs" />
+    <Compile Include="Commands\Items\GiveItem.cs" />
+    <Compile Include="Commands\Items\GiveItemID.cs" />
+    <Compile Include="Commands\Items\GiveTeam.cs" />
+    <Compile Include="Commands\Items\RemoveItem.cs" />
+    <Compile Include="Commands\Items\RemoveItemID.cs" />
+    <Compile Include="Commands\Items\RemoveTeam.cs" />
+    <Compile Include="Commands\ListPlayers.cs" />
+    <Compile Include="Handlers\RoundStartHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StartEvent.cs" />
-    <Compile Include="StartEvent_Plugin.cs" />
+    <Compile Include="Commands\StartEvent.cs" />
+    <Compile Include="EasyEvents_Plugin.cs" />
+    <Compile Include="Classes\ZeroExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
