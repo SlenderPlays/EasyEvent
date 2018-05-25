@@ -56,8 +56,8 @@ namespace EasyEvent.Handlers
                 {
                     rounds_passed = 0;
                     
-                    int randomNR = rnd.Next(0, startEvent.events.Count-1);
-                    plugin.Info("Choosing "+randomNR+" event out of " + startEvent.events.Count);
+                    int randomNR = rnd.Next(0, startEvent.events.Count);
+                    plugin.Info("Choosing " + (randomNR+1) +" event out of " + startEvent.events.Count);
                     startEvent.OnCall(plugin.pluginManager.CommandManager, new string[]{ startEvent.events[randomNR].name});
                 }
             }

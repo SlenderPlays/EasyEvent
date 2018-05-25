@@ -30,6 +30,7 @@ namespace EasyEvent
         public string GetUsage() => "Used for custom events to diversify the game";
         public void OnCall(ICommandManager manger, string[] args)
         {
+            
             InterpreteConfig();
             if (args.Length == 0)
             {
@@ -68,8 +69,8 @@ namespace EasyEvent
                 float percentage = (float)(gameClass.precentage / 100f);
                 int numberofplayers = (int)(Math.Floor(percentage * players.Count));
                 Classes classToChange = (Classes)gameClass.value;
-                Debug(percentage.ToString());
-                Debug(numberofplayers.ToString());
+                Debug("Percentage: " +percentage.ToString());
+                Debug("Number of players to assign: " + numberofplayers.ToString());
                 for (int i = 0; i < numberofplayers; i++)
                 {
                     int index = rnd.Next(0, players.Count);

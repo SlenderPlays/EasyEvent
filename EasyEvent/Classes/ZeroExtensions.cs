@@ -85,6 +85,64 @@ namespace ZeroExtensions
                     return -1;
             }
         }
+        /// <summary>
+        /// List all ItemTypes.
+        /// </summary>
+        /// <returns>A list with all of the ItemTypes</returns>
+        public static List<ItemType> ListItemTypes()
+        {
+            List<ItemType> temp = new List<ItemType>();
+            foreach (ItemType type in Enum.GetValues(typeof(ItemType)))
+            {
+                temp.Add(type);
+            }
+            return temp;
+        }
+        /// <summary>
+        /// List all Classes.
+        /// </summary>
+        /// <returns>A list with all of the Classes</returns>
+        public static List<Classes> ListClasses()
+        {
+            List<Classes> temp = new List<Classes>();
+            foreach (Classes type in Enum.GetValues(typeof(Classes)))
+            {
+                temp.Add(type);
+            }
+            return temp;
+        }
+
+        /// <summary>
+        /// Convert a list of ItemTypes to a list of their names.
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public static List<string> ToStringList(this List<ItemType> list)
+        {
+            List<string> temp = new List<string>();
+            foreach (ItemType type in list)
+            {
+                temp.Add(type.ToString());
+            }
+            return temp;
+        }
+        /// <summary>
+        /// Convert a list of Classes to a list of their names.
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public static List<string> ToStringList(this List<Classes> list)
+        {
+            List<string> temp = new List<string>();
+            foreach (Classes type in list)
+            {
+                temp.Add(type.ToString());
+            }
+            return temp;
+        }
+
+
+
         /// <summary> 
         /// Compute the distance between two strings.
         /// </summary>

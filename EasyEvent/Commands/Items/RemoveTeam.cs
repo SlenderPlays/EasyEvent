@@ -18,13 +18,13 @@ using ZeroExtensions;
 namespace EasyEvent
 {
 
-    public class RemoveTeam : ICommandHandler
+    public class RemoveClass : ICommandHandler
     {
 
 
 
         private EasyEvents_Plugin plugin;
-        public RemoveTeam(EasyEvents_Plugin plugin_in) => this.plugin = plugin_in;
+        public RemoveClass(EasyEvents_Plugin plugin_in) => this.plugin = plugin_in;
         public string GetCommandDescription() => "Too bored to type.";
         public string GetUsage() => "Same dude.";
         public void OnCall(ICommandManager manger, string[] args)
@@ -52,39 +52,7 @@ namespace EasyEvent
                 #region Get The Bloddy Item
 
                 List<String> items = new List<string>();
-                items.AddRange(new String[] {
-                "NULL",
-                "JANITOR_KEYCARD",
-                "SCIENTIST_KEYCARD",
-                "MAJOR_SCIENTIST_KEYCARD",
-                "ZONE_MANAGER_KEYCARD",
-                "GUARD_KEYCARD",
-                "SENIOR_GUARD_KEYCARD",
-                "CONTAINMENT_ENGINEER_KEYCARD",
-                "MTF_LIEUTENANT_KEYCARD",
-                "MTF_COMMANDER_KEYCARD",
-                "FACILITY_MANAGER_KEYCARD",
-                "CHAOS_INSURGENCY_DEVICE",
-                "O5_LEVEL_KEYCARD",
-                "RADIO",
-                "M1911_PISTOL",
-                "MEDKIT",
-                "FLASHLIGHT",
-                "MICROHID",
-                "COIN",
-                "CUP",
-                "AMMOMETER",
-                "E11_STANDARD_RIFLE",
-                "SBX7_PISTOL",
-                "DROPPED_SFA",
-                "SKORPION_SMG",
-                "LOGICER",
-                "POSITRON_GRENADE",
-                "SMOKE_GRENADE",
-                "DISARMER",
-                "DROPPED_RAT",
-                "DROPPED_PAT"
-                });
+                items.AddRange(Extensions.ListItemTypes().ToStringList());
 
                 //Debug("Before Enum Parse: "+args[1].ToUpper().InclusiveListLevDistance(items));
 
@@ -117,25 +85,8 @@ namespace EasyEvent
                 else
                 {
                     List<String> classes_list = new List<string>();
-                    classes_list.AddRange(new String[] {
-                    "UNASSIGNED",
-                    "SCP_173",
-                    "CLASSD",
-                    "SPECTATOR",
-                    "SCP_106",
-                    "NTF_SCIENTIST",
-                    "SCP_049",
-                    "SCIENTIST",
-                    "SCP_079",
-                    "CHAOS_INSUGENCY",
-                    "SCP_096",
-                    "SCP_049_2",
-                    "ZOMBIE",
-                    "NTF_LIEUTENANT",
-                    "NTF_COMMANDER",
-                    "NTF_GUARD",
-                    "TUTORIAL"
-                    });
+                    classes_list.AddRange(Extensions.ListClasses().ToStringList());
+
                     string closest = args[0].ToUpper().InclusiveListLevDistance(classes_list);
                     Debug("Closest: " + closest);
                     classWithItem = (Classes)(Enum.Parse(typeof(Classes), closest));
